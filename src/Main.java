@@ -55,6 +55,12 @@ public class Main {
                 case LIST_CONTACTS:
                     listAllContacts(cBook);
                     break;
+                case GET_NUMBER:
+                    getContactByPhone(in, cBook);
+                    break;
+                case EXISTS_PHONE:
+                    existsPhone(cBook);
+                    break;
                 default:
                     System.out.println(COMMAND_ERROR);
             }
@@ -149,4 +155,7 @@ public class Main {
         }
         else System.out.println(BOOK_EMPTY);
     }
+    private static void getContactByPhone(Scanner in, ContactBook cBook) {}
+    private static void existsPhone(ContactBook cBook) {}
+
 }
