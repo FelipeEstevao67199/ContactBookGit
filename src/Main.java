@@ -29,6 +29,8 @@ public class Main {
     public static final String PHONE_NOT_EXIST = "Phone number does not exist.";
     public static final String SAME_NUMBER = "There are contacts that share phone numbers.";
     public static final String DIF_NUMBER = "All contacts have different phone numbers.";
+    public static final int NOT_FOUND = -1;
+
 
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
@@ -172,6 +174,23 @@ public class Main {
         }
         System.out.println(PHONE_NOT_EXIST);
     }
-    private static void existsPhone(ContactBook cBook) {}
+    private static void existsPhone(ContactBook cBook) {
+        boolean hasSameNumber = false;
+
+        while (cBook.hasNext() && !hasSameNumber) {
+            int previousPhone = cBook.next().getPhone();
+            int nextPhone = NOT_FOUND;
+
+            if (cBook.hasNext())
+                nextPhone = cBook.next().getPhone();
+
+            hasSameNumber = (nextPhone == previousPhone);
+        }
+
+        if (hasSameNumber)
+            System.out.println(SAME_NUMBER);
+        else
+            System.out.println(DIF_NUMBER);
+    }
 
 }
