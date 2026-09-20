@@ -158,7 +158,20 @@ public class Main {
         }
         else System.out.println(BOOK_EMPTY);
     }
-    private static void getContactByPhone(Scanner in, ContactBook cBook) {}
+    private static void getContactByPhone(Scanner in, ContactBook cBook) {
+        int phone;
+        phone = in.nextInt();
+        in.nextLine();
+        cBook.initializeIterator();
+        while(cBook.hasNext()){
+            Contact c = cBook.next();
+            if (c.getPhone() == phone) {
+                System.out.println(c.getName());
+                return;
+            }
+        }
+        System.out.println(PHONE_NOT_EXIST);
+    }
     private static void existsPhone(ContactBook cBook) {}
 
 }
